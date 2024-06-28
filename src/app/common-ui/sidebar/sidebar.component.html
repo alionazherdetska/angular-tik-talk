@@ -1,0 +1,97 @@
+<img src="/assets/svg/logo.svg" alt="Logo" class="sidebar-logo" />
+<nav>
+  <ul class="main-menu-list">
+    <li>
+      <button class="menu-item" routerLinkActive="active">
+        <svg
+          width="13.312454"
+          height="11.343750"
+          viewBox="0 0 13.3125 11.3438"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <desc>Created with Pixso.</desc>
+          <defs />
+          <path
+            id="Vector"
+            d="M5.31 11.34L2 11.34L2 6L0 6L6.65 0L13.31 6L11.31 6L11.31 11.34L8 11.34L8 7.34L5.31 7.34L5.31 11.34Z"
+            fill="currentColor"
+            fill-opacity="1.000000"
+            fill-rule="nonzero"
+          />
+        </svg>
+        <a class="sidebar-link" routerLink="/profile/me">My Page</a>
+      </button>
+    </li>
+
+    <li>
+      <button class="menu-item">
+        <svg
+          width="13.312454"
+          height="13.312500"
+          viewBox="0 0 13.3125 13.3125"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <desc>Created with Pixso.</desc>
+          <defs />
+          <path
+            id="Vector"
+            d="M10.65 4L10.65 2.65L2.65 2.65L2.65 4L10.65 4ZM8 8L8 6.65L2.65 6.65L2.65 8L8 8ZM2.65 4.65L2.65 6L10.65 6L10.65 4.65L2.65 4.65ZM12 0C12.35 0 12.65 0.13 12.9 0.4C13.17 0.65 13.31 0.95 13.31 1.31L13.31 9.31C13.31 9.66 13.17 9.98 12.9 10.25C12.65 10.51 12.35 10.65 12 10.65L2.65 10.65L0 13.31L0 1.31C0 0.95 0.12 0.65 0.37 0.4C0.64 0.13 0.95 0 1.31 0L12 0Z"
+            fill="currentColor"
+            fill-opacity="1.000000"
+            fill-rule="nonzero"
+          />
+        </svg>
+        <span>Chat</span>
+      </button>
+    </li>
+    <button class="menu-item">
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4.21875 8.46875C4.80208 9.05208 5.51042 9.34375 6.34375 9.34375C7.17708 9.34375 7.88542 9.05208 8.46875 8.46875C9.05208 7.88542 9.34375 7.17708 9.34375 6.34375C9.34375 5.51042 9.05208 4.80208 8.46875 4.21875C7.88542 3.63542 7.17708 3.34375 6.34375 3.34375C5.51042 3.34375 4.80208 3.63542 4.21875 4.21875C3.63542 4.80208 3.34375 5.51042 3.34375 6.34375C3.34375 7.17708 3.63542 7.88542 4.21875 8.46875ZM10.3438 9.34375L13.6562 12.6562L12.6562 13.6562L9.34375 10.3438V9.8125L9.15625 9.625C8.36458 10.3125 7.42708 10.6562 6.34375 10.6562C5.13542 10.6562 4.10417 10.2396 3.25 9.40625C2.41667 8.57292 2 7.55208 2 6.34375C2 5.13542 2.41667 4.11458 3.25 3.28125C4.10417 2.42708 5.13542 2 6.34375 2C7.55208 2 8.57292 2.42708 9.40625 3.28125C10.2396 4.11458 10.6562 5.13542 10.6562 6.34375C10.6562 6.78125 10.5521 7.28125 10.3438 7.84375C10.1354 8.38542 9.89583 8.82292 9.625 9.15625L9.8125 9.34375H10.3438Z"
+          fill="currentColor"
+        />
+      </svg>
+      <a class="sidebar-link" routerLink="/search">Search</a>
+    </button>
+  </ul>
+</nav>
+
+<p class="medium-text">Followers</p>
+
+@for (profile of subscribers$ | async; track profile.id) {
+  <app-subscriber-card [profile]="profile"> </app-subscriber-card>
+}
+
+<div class="to-subscribers">
+  <a class="to-subscribers-link" [routerLink]="['/subscribers']">
+    All followers
+  </a>
+  <img class="to-subscribers-icon" src="/assets/svg/arrow.svg" alt="Arrow" />
+</div>
+
+<footer class="sidebar-footer">
+  @if (me(); as me) {
+    @if (me.avatarUrl) {
+      <img [src]="me.avatarUrl | imgUrl" alt="Avatar" />
+    } @else {
+      <img src="/assets/images/default-avatar.png" alt="Avatar" />
+    }
+    <div class="username">
+      {{ me.username }}
+    </div>
+  }
+
+  <a [routerLink]="['settings']" class="settings-btn">
+    <img src="/assets/svg/settings.svg" alt="Settings" />
+  </a>
+</footer>

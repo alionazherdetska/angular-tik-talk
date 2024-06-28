@@ -1,0 +1,54 @@
+:host {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100dvh;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 5%;
+}
+
+.login-form .tt-control-label:first-of-type {
+  margin-top: 60px;
+}
+
+.login-form .tt-control-label:nth-of-type(2) {
+  margin-bottom: 32px;
+}
+
+.tt-input {
+  width: 100%;
+  margin-top: 8px;
+  display: flex;
+  border: 1px solid var(--light-color);
+  border-radius: 4px;
+  padding: 12px 20px;
+  background-color: var(--dark-color);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  font-family: "JetBrains Mono", sans-serif;
+  color: var(--light-color);
+}
+
+.password-container {
+  position: relative;
+}
+
+.password-eye-btn {
+  background: none;
+  border: none;
+  position: absolute;
+  top: 56%;
+  right: 12px;
+  transform: translateY(-56%);
+  color: var(--light-color);
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.active {
+  color: var(--primary-color);
+}

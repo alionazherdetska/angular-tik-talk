@@ -1,0 +1,80 @@
+.profile-page__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+}
+
+.profile-page__body {
+  padding: 24px;
+  display: grid;
+  grid-gap: 64px;
+  grid-template-columns: 1fr 350px;
+}
+
+.to-setting-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.to-setting-btn {
+  width: 190px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.followers-title {
+  margin-bottom: 16px;
+}
+
+.subscriber-avatar-button {
+  img {
+    width: 36px;
+    height: 26px;
+    border-radius: 50%;
+  }
+}
+
+.subscriber-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 32px;
+}
+
+.to-subscribers-search {
+  border-radius: 50%;
+  background: var(--light-color);
+  height: 16px;
+  width: 16px;
+  position: relative;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 8px;
+    background: var(--dark-color);
+    top: 50%;
+    left: 50%;
+  }
+
+  &:before {
+    transform: translateY(-50%) translateX(-50%);
+  }
+
+  &:after {
+    transform: translateY(-50%) translateX(-50%) rotate(90deg);
+  }
+}
+
+.stack-wrapper {
+  margin-bottom: 32px;
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
